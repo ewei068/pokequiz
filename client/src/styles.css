@@ -1,0 +1,43 @@
+.background {
+  height: 100vh;
+  background-color: #007bff;
+  transition: background-color 0.7s ease-in;
+}
+
+.centered-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+  flex-direction: column;
+}
+
+.horizontal-centered-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+h1 {
+  color: white;
+  font-size: 4em !important;
+}
+
+h2 {
+  color: white;
+}
+
+.blue-button {
+  background-color: white;
+  color: blue;
+}
+
+.w-300 {
+  width: 300px;
+}
+
+.sprite {
+  width: 250px;
+  height: 250px;
+  background-size: 100%;
+}
