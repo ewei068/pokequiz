@@ -46,7 +46,7 @@ function Quiz() {
 
   // TODO: use contexts or something else
   useEffect(() => {
-    fetch('/data/pokemon_data.json')
+    fetch(`${process.env.BASE_PATH}/data/pokemon_data.json`)
       .then(response => response.json())
       .then(data => {
         setPokemonData(data);
