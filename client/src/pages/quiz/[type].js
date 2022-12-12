@@ -56,7 +56,7 @@ function Quiz() {
   }, []);
 
   useEffect(() => {
-    fetch('/data/sprite_similarities.json')
+    fetch('${process.env.BASE_PATH}/data/sprite_similarities.json')
       .then(response => response.json())
       .then(data => {
         setProbabilityData(data);

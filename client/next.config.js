@@ -6,7 +6,6 @@ let basePath = `/${cwd}/out`
 
 if (isGithubActions) {
   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
-  console.log(repo);
 
   assetPrefix = `/${repo}/`
   basePath = `/${repo}`
