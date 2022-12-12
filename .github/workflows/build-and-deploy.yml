@@ -20,6 +20,7 @@ jobs:
           # update the Node version to meet your needs
           node-version: 16
           cache: npm
+          cache-dependency-path: './client/package-lock.json'
 
       - name: Build
         working-directory: ./client
