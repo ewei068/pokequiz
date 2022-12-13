@@ -5,6 +5,21 @@ import MediaContainer from "../../components/MediaContainer";
 import ButtonGrid from "../../components/ButtonGrid";
 import BackgroundContext from "../../contexts/BackgroundContext";
 
+export async function getStaticPaths() {
+  return {
+    paths: [{ params: { type: 'image' } }],
+    fallback: false, // can also be true or 'blocking'
+  }
+}
+
+// `getStaticPaths` requires using `getStaticProps`
+export async function getStaticProps(context) {
+  return {
+    // Passed to the page component as props
+    props: { },
+  }
+}
+
 
 function Quiz() {
   // const [loading, setLoading] = useState(true);
