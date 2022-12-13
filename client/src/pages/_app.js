@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Head from 'next/head';
+import Script from 'next/script'
+import { NextSeo } from 'next-seo';
 import BackgroundContext from "../contexts/BackgroundContext";
 import "../styles.css";
 import 'bootstrap/dist/css/bootstrap.css';
@@ -18,10 +21,34 @@ const MyApp = ({ Component, pageProps }) => {
   }
 
   return (
-    <div className="background" style={background}>
-      <BackgroundContext.Provider value={{ flashBackground }}>
-        <Component {...pageProps} />
-      </BackgroundContext.Provider>
+    <div>
+      <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-Z821NCJYBE"></Script>
+      <Script
+        id='google-analytics'
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Z821NCJYBE', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
+      <Head>
+        <link rel="shortcut icon" href={`${process.env.BASE_PATH}/pokemon.ico`} />
+      </Head>
+      <NextSeo
+        title="PokeQuiz: Who's That Pokemon?"
+        description="Machine Learning powered Pokemon Quiz to create the hardest Pokemon Quiz ever! Test your Pokemon knowledge and see how many you can get right!"
+      />
+      <div className="background" style={background}>
+        <BackgroundContext.Provider value={{ flashBackground }}>
+          <Component {...pageProps} />
+        </BackgroundContext.Provider>
+      </div>
     </div>
   )
 }

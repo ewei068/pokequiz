@@ -50,3 +50,7 @@ The frontend website is built with Next.js, exported to a static website, and de
     3. Run `npx http-server`.
 4. Visit the link and that your changes were successful.
 
+## Credits
+
+* Thumbnail Icon: <a href="https://iconscout.com/icons/pokemon" target="_blank">Pokemon Icon</a> by <a href="https://iconscout.com/contributors/mcgandhi61" target="_blank">Mohit Gandhi</a>
+
