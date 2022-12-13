@@ -1,6 +1,6 @@
 # PokeQuiz
 
-Using Machine Learning to make the hardest possible Who's That Pokemon game!
+Using Machine Learning to make the hardest possible Who's That Pokemon game! Try it out here: [https://ewei068.github.io/pokequiz/](https://ewei068.github.io/pokequiz/)
 
 ## Development
 
