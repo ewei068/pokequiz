@@ -47,7 +47,7 @@ The frontend website is built with Next.js, exported to a static website, and de
 3. Deploy the static website:
     1. Install `http-server`: `npm install -g http-server`.
     2. Navigate to `client/out`.
-    3. Run `npx http-server`.
+    3. Run `http-server`.
 4. Visit the link and that your changes were successful.
 
 ## Credits
