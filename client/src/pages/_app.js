@@ -40,6 +40,9 @@ const MyApp = ({ Component, pageProps }) => {
       <Head>
         <meta name="google-site-verification" content="sjNS_-1SsZyHECFHhJwVwJqgpFtP-q5vZ1we6rUAPKA" />
         <link rel="shortcut icon" href={`${process.env.BASE_PATH}/pokemon.ico`} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
       </Head>
       <NextSeo
         title="PokeQuiz: Who's That Pokemon?"

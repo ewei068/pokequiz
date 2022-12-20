@@ -27,6 +27,18 @@ h2 {
   color: white;
 }
 
+h3 {
+  color: white;
+  text-align: center;
+}
+
+.text-container {
+  color: white;
+  text-align: center;
+  margin: auto;
+  font-family: "Press Start 2P";
+}
+
 .blue-button {
   background-color: white;
   color: blue;

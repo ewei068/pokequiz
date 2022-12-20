@@ -7,7 +7,18 @@ import BackgroundContext from "../../contexts/BackgroundContext";
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { type: 'image' } }],
+    paths: [
+      { 
+        params: { 
+          type: 'sprite' 
+        }
+      },
+      {
+        params: { 
+          type: 'pokedex-entry' 
+        }
+      }
+    ],
     fallback: false, // can also be true or 'blocking'
   }
 }
@@ -32,6 +43,7 @@ function Quiz() {
   const { flashBackground } = useContext(BackgroundContext);
 
   const router = useRouter();
+  const { type } = router.query;
 
   function setRandomPokemon(probabilityData) {
     const pokemon = Object.keys(probabilityData);
@@ -71,7 +83,12 @@ function Quiz() {
   }, []);
 
   useEffect(() => {
-    fetch(`${process.env.BASE_PATH}/data/sprite_similarities.json`)
+    let probability_json = 'sprite_similarities.json';
+    if (type == 'pokedex-entry') {
+      probability_json = 'pokedex_similarities.json';
+    }
+
+    fetch(`${process.env.BASE_PATH}/data/${probability_json}`)
       .then(response => response.json())
       .then(data => {
         setProbabilityData(data);
@@ -97,17 +114,27 @@ function Quiz() {
       <Row className="my-5">
         <Col className="text-center">
           <h1>Who's that Pokemon?</h1>
-          <h2>Sprite Test - Score: {score} - Remaining: {remaining}</h2>
+          <h2>{type.replace(/-/g, ' ').replace(/(?: |\b)(\w)/g, function(key, p1) {
+            return key.toUpperCase();    
+          })} Test - Score: {score} - Remaining: {remaining}</h2>
         </Col>
       </Row>
       <Row>
         <Col>
-          <MediaContainer id={id} />
+          <MediaContainer 
+            id={id} 
+            pokemonData={pokemonData}
+          />
         </Col>
       </Row>
       <Row>
         <Col>
-          <ButtonGrid id={id} probabilityData={probabilityData} pokemonData={pokemonData} clickCallback={clickCallback}/>
+          <ButtonGrid 
+            id={id} 
+            probabilityData={probabilityData} 
+            pokemonData={pokemonData} 
+            clickCallback={clickCallback}
+          />
         </Col>
       </Row>
     </Container>
