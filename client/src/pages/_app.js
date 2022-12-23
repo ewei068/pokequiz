@@ -52,6 +52,13 @@ const MyApp = ({ Component, pageProps }) => {
         <BackgroundContext.Provider value={{ flashBackground }}>
           <Component {...pageProps} />
         </BackgroundContext.Provider>
+        <div className="footer">
+          Made with love by Elvis Wei
+          <br />
+          <a href="https://github.com/ewei068/pokequiz">Github</a>&nbsp;&nbsp;--&nbsp;&nbsp;
+          <a href="https://www.linkedin.com/in/ewei068/">LinkedIn</a>&nbsp;&nbsp;--&nbsp;&nbsp;
+          <a href="https://portosaurus.github.io/ewei068/">Portfolio</a>
+        </div>
       </div>
     </div>
   )

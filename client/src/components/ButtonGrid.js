@@ -67,24 +67,24 @@ function ButtonGrid({ id, probabilityData, pokemonData, clickCallback }) {
   return (
     <Container>
       <Row>
-        <Col>
+        <Col className="horizontal-centered-container">
           <AnswerButton callback={generateCallback(options[0])}>
             {pokemonData[options[0]]["name"]}
           </AnswerButton>
         </Col>
-        <Col>
+        <Col className="horizontal-centered-container">
           <AnswerButton callback={generateCallback(options[1])}>
             {pokemonData[options[1]]["name"]}
           </AnswerButton>
         </Col>
       </Row>
       <Row>
-        <Col>
+        <Col className="horizontal-centered-container">
           <AnswerButton callback={generateCallback(options[2])}>
             {pokemonData[options[2]]["name"]}
           </AnswerButton>
         </Col>
-        <Col>
+        <Col className="horizontal-centered-container">
           <AnswerButton callback={generateCallback(options[3])}>
             {pokemonData[options[3]]["name"]}
           </AnswerButton>

@@ -1,14 +1,27 @@
 .background {
-  height: 100vh;
   background-color: #007bff;
   transition: background-color 0.7s ease-in;
+}
+
+body {
+  background-color: #007bff !important;
+}
+
+.footer {
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+}
+
+a {
+  color: #333333 !important;
 }
 
 .centered-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 95vh;
+  min-height: 92vh;
   flex-direction: column;
 }
 
