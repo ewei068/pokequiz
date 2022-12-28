@@ -51,6 +51,9 @@ The frontend website is built with Next.js, exported to a static website, and de
 4. Visit the link and that your changes were successful.
 
 ## Credits
+This project was inspired by [Pokemon Cries](https://pokemoncries.com/).
 
+* General Pokemon Data and Sprites: [PokeAPI](https://pokeapi.co/)
+* Pokemon Cry Audio: [Pokemon Showdown](https://play.pokemonshowdown.com/audio/cries/)
 * Thumbnail Icon: <a href="https://iconscout.com/icons/pokemon" target="_blank">Pokemon Icon</a> by <a href="https://iconscout.com/contributors/mcgandhi61" target="_blank">Mohit Gandhi</a>
 
