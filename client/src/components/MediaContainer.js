@@ -1,6 +1,8 @@
 import React from "react";
 import { useRouter } from 'next/router';
 import LoadImage from "./LoadImage";
+import LoadSound from "./LoadSound";
+import { QUIZ_CONFIG } from "../util/constants";
 
 const MediaContainer = ({ id, pokemonData }) => {
   const router = useRouter();
@@ -8,9 +10,9 @@ const MediaContainer = ({ id, pokemonData }) => {
 
   return (
     <div className="mb-5">
-      {type == "sprite" && <LoadImage id={id} />}
+      {type == QUIZ_CONFIG.SPRITE.name && <LoadImage id={id} />}
       {
-        type == "pokedex-entry" && 
+        type == QUIZ_CONFIG.POKEDEX_ENTRY.name && 
         <>
           <h3>
             Pokedex Entry:
@@ -20,6 +22,7 @@ const MediaContainer = ({ id, pokemonData }) => {
           </h6>
         </>
       }
+      {type == QUIZ_CONFIG.CRY.name && <LoadSound id={id} />}
     </div>
   );
 };

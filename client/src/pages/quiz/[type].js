@@ -4,21 +4,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import MediaContainer from "../../components/MediaContainer";
 import ButtonGrid from "../../components/ButtonGrid";
 import BackgroundContext from "../../contexts/BackgroundContext";
+import { capitalizePathParam } from "../../util/string-utils";
+import { QUIZ_CONFIG } from "../../util/constants";
 
 export async function getStaticPaths() {
   return {
-    paths: [
-      { 
-        params: { 
-          type: 'sprite' 
-        }
-      },
-      {
-        params: { 
-          type: 'pokedex-entry' 
-        }
-      }
-    ],
+    paths: Object.keys(QUIZ_CONFIG).map((key) => ({
+      params: { type: QUIZ_CONFIG[key].name },
+    })),
     fallback: false, // can also be true or 'blocking'
   }
 }
@@ -84,8 +77,10 @@ function Quiz() {
 
   useEffect(() => {
     let probability_json = 'sprite_similarities.json';
-    if (type == 'pokedex-entry') {
+    if (type == QUIZ_CONFIG.POKEDEX_ENTRY.name) {
       probability_json = 'pokedex_similarities.json';
+    } else if (type == QUIZ_CONFIG.CRY.name) {
+      probability_json = 'cry_similarities.json';
     }
 
     fetch(`${process.env.BASE_PATH}/data/${probability_json}`)
@@ -114,9 +109,7 @@ function Quiz() {
       <Row className="my-5">
         <Col className="text-center">
           <h1>Who's that Pokemon?</h1>
-          <h2>{type.replace(/-/g, ' ').replace(/(?: |\b)(\w)/g, function(key, p1) {
-            return key.toUpperCase();    
-          })} Test - Score: {score} - Remaining: {remaining}</h2>
+          <h2>{capitalizePathParam(type)} Test - Score: {score} - Remaining: {remaining}</h2>
         </Col>
       </Row>
       <Row>
