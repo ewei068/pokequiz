@@ -55,9 +55,11 @@ const MyApp = ({ Component, pageProps }) => {
         <div className="footer">
           Made with love by Elvis Wei
           <br />
-          <a href="https://github.com/ewei068/pokequiz">Github</a>&nbsp;&nbsp;--&nbsp;&nbsp;
-          <a href="https://www.linkedin.com/in/ewei068/">LinkedIn</a>&nbsp;&nbsp;--&nbsp;&nbsp;
-          <a href="https://portosaurus.github.io/ewei068/">Portfolio</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/ewei068/pokequiz">Github</a>&nbsp;&nbsp;--&nbsp;&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ewei068/">LinkedIn</a>&nbsp;&nbsp;--&nbsp;&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://portosaurus.github.io/ewei068/">Portfolio</a>
+          <br />
+          Inspired by <a target="_blank" rel="noopener noreferrer" href="https://pokemoncries.com/">Pokemon Cries</a>
         </div>
       </div>
     </div>

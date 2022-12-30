@@ -7,10 +7,19 @@ body {
   background-color: #007bff !important;
 }
 
+.plaintext {
+  text-align: center;
+  color: white;
+  max-width: 700px;
+  margin: 0 auto !important; 
+	float: none !important; 
+}
+
 .footer {
   margin-top: 10px;
   text-align: center;
   color: white;
+  font-size: 12px;
 }
 
 a {

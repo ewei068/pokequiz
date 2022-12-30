@@ -7,7 +7,10 @@ function Index() {
     <Container className="centered-container">
       <Row className="my-5">
         <Col className="text-center" >
-          <h1 className="mb-5">Who's That Pokemon?</h1>
+          <h1>Who's That Pokemon?</h1>
+          <div className="plaintext mb-5">
+            PokeQuiz - a Machine learning powered Pokemon Quiz tuned for high difficulty. Choose a quiz category and guess the correct Pokemon.
+          </div>
           <LinkButton link="/quiz/sprite">Sprite Quiz</LinkButton>
           <LinkButton link="/quiz/pokedex-entry">Pokedex Entry Quiz</LinkButton>
         </Col>
