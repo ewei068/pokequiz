@@ -5,12 +5,12 @@ import MediaContainer from "../../components/MediaContainer";
 import ButtonGrid from "../../components/ButtonGrid";
 import BackgroundContext from "../../contexts/BackgroundContext";
 import { capitalizePathParam } from "../../util/string-utils";
-import { QUIZ_CONFIG } from "../../util/constants";
+import { QUIZ_NAMES, QUIZ_CONFIG } from "../../util/constants";
 
 export async function getStaticPaths() {
   return {
-    paths: Object.keys(QUIZ_CONFIG).map((key) => ({
-      params: { type: QUIZ_CONFIG[key].name },
+    paths: Object.keys(QUIZ_NAMES).map((key) => ({
+      params: { type: QUIZ_NAMES[key].name },
     })),
     fallback: false, // can also be true or 'blocking'
   }
@@ -56,12 +56,12 @@ function Quiz() {
         pathname: "/end",
         query: { score: newScore },
       }, "/end");
+    } else {
+      setScore(newScore)
+      setRemaining(remaining - 1);
+      flashBackground(correct);
+      setRandomPokemon(probabilityData);
     }
-
-    setScore(newScore)
-    setRemaining(remaining - 1);
-    flashBackground(correct);
-    setRandomPokemon(probabilityData);
   }
 
   // TODO: use contexts or something else
@@ -76,12 +76,7 @@ function Quiz() {
   }, []);
 
   useEffect(() => {
-    let probability_json = 'sprite_similarities.json';
-    if (type == QUIZ_CONFIG.POKEDEX_ENTRY.name) {
-      probability_json = 'pokedex_similarities.json';
-    } else if (type == QUIZ_CONFIG.CRY.name) {
-      probability_json = 'cry_similarities.json';
-    }
+    let probability_json = QUIZ_CONFIG[type].probability_json;
 
     fetch(`${process.env.BASE_PATH}/data/${probability_json}`)
       .then(response => response.json())
