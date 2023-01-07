@@ -8,7 +8,6 @@ import DisplayStats from "./DisplayStats";
 const MediaContainer = ({ id, pokemonData }) => {
   const router = useRouter();
   const { type } = router.query;
-  console.log(pokemonData[id])
 
   return (
     <div className="mb-5">

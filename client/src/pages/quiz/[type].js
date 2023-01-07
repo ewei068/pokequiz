@@ -5,7 +5,8 @@ import MediaContainer from "../../components/MediaContainer";
 import ButtonGrid from "../../components/ButtonGrid";
 import BackgroundContext from "../../contexts/BackgroundContext";
 import { capitalizePathParam } from "../../util/string-utils";
-import { QUIZ_NAMES, QUIZ_CONFIG } from "../../util/constants";
+import { QUIZ_NAMES, MODE_NAMES, QUIZ_CONFIG } from "../../util/constants";
+import QuizDisplay from "../../components/QuizDisplay";
 
 export async function getStaticPaths() {
   return {
@@ -32,11 +33,12 @@ function Quiz() {
   const [pokemonLoading, setPokemonLoading] = useState(true);
   const [id, setId] = useState("0");
   const [score, setScore] = useState(0);
-  const [remaining, setRemaining] = useState(10);
+  const [remaining, setRemaining] = useState(-1);
   const { flashBackground } = useContext(BackgroundContext);
 
   const router = useRouter();
   const { type } = router.query;
+  const mode = router.query.mode ? router.query.mode : MODE_NAMES.DEFAULT.name;
 
   function setRandomPokemon(probabilityData) {
     const pokemon = Object.keys(probabilityData);
@@ -44,21 +46,35 @@ function Quiz() {
     setId(`${randomIndex + 1}`);
   }
 
+  useEffect(()=>{
+    if(!router.isReady) return;
+
+    setRemaining(mode == MODE_NAMES.ENDLESS.name ? 3 : 10);
+
+  }, [router.isReady]);
+
   function clickCallback(correct) {
     let newScore = score;
     if (correct) {
       newScore += 1;
+    } 
+    
+    let newRemaining = 0;
+    if (mode == MODE_NAMES.ENDLESS.name && correct) {
+      newRemaining = remaining;
+    } else {
+      newRemaining = remaining - 1;
     }
 
     // if game end, redirect to end page
-    if (remaining == 1) {
+    if (newRemaining == 0) {
       router.push({
         pathname: "/end",
         query: { score: newScore },
       }, "/end");
     } else {
       setScore(newScore)
-      setRemaining(remaining - 1);
+      setRemaining(newRemaining);
       flashBackground(correct);
       setRandomPokemon(probabilityData);
     }
@@ -87,7 +103,7 @@ function Quiz() {
       .catch(error => console.error(error));
   }, []);
 
-  if (id == "0" || pokemonLoading) {
+  if (id == "0" || pokemonLoading || remaining == -1) {
     return (
     <Container className="centered-container">
       <Row className="my-5">
@@ -103,8 +119,12 @@ function Quiz() {
     <Container className="centered-container" fluid>
       <Row className="my-5">
         <Col className="text-center">
-          <h1>Who's that Pokemon?</h1>
-          <h2>{capitalizePathParam(type)} Test - Score: {score} - Remaining: {remaining}</h2>
+          <QuizDisplay
+            mode={mode}
+            type={type}
+            score={score}
+            remaining={remaining}
+          />
         </Col>
       </Row>
       <Row>

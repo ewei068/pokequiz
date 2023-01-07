@@ -13,6 +13,15 @@ const QUIZ_NAMES = {
     }
 }
 
+const MODE_NAMES = {
+    DEFAULT: {
+        name: "default",
+    },
+    ENDLESS: {
+        name: "endless",
+    }
+}
+
 const QUIZ_CONFIG = {
     [QUIZ_NAMES.SPRITE.name]: {
         "probability_json": "sprite_similarities.json",
@@ -28,4 +37,4 @@ const QUIZ_CONFIG = {
     }
 }
 
-export { QUIZ_NAMES, QUIZ_CONFIG }
+export { QUIZ_NAMES, MODE_NAMES, QUIZ_CONFIG }
