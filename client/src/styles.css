@@ -64,6 +64,7 @@ h5 {
   text-align: center;
   margin: auto;
   font-family: "Press Start 2P";
+  max-width: 700px;
 }
 
 .blue-button {

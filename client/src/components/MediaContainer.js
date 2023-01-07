@@ -18,7 +18,7 @@ const MediaContainer = ({ id, pokemonData }) => {
           <h3>
             Pokedex Entry:
           </h3>
-          <h6 className="text-container w-50">
+          <h6 className="text-container w-100">
               {pokemonData[id]["flavor_text"]}
           </h6>
         </>

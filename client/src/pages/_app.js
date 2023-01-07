@@ -53,11 +53,11 @@ const MyApp = ({ Component, pageProps }) => {
           <Component {...pageProps} />
         </BackgroundContext.Provider>
         <div className="footer">
-          Made with love by Elvis Wei
-          <br />
-          <a target="_blank" rel="noopener noreferrer" href="https://github.com/ewei068/pokequiz">Github</a>&nbsp;&nbsp;--&nbsp;&nbsp;
-          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ewei068/">LinkedIn</a>&nbsp;&nbsp;--&nbsp;&nbsp;
+          Made with love by Elvis Wei | <a target="_blank" rel="noopener noreferrer" href="https://github.com/ewei068/pokequiz">Github</a>&nbsp;|&nbsp;
+          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/ewei068/">LinkedIn</a>&nbsp;|&nbsp;
           <a target="_blank" rel="noopener noreferrer" href="https://portosaurus.github.io/ewei068/">Portfolio</a>
+          <br />
+          All content is © Nintendo, Game Freak, and The Pokémon Company
           <br />
           Inspired by <a target="_blank" rel="noopener noreferrer" href="https://pokemoncries.com/">Pokemon Cries</a>
         </div>
